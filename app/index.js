@@ -22,7 +22,7 @@ export default function Page() {
                 <View style={{ flex: 1, padding: SIZES.medium }}>
                     <Welcome />
 
-                    <PopularJobs />
+                    {/* <PopularJobs /> */}
                     <Nearbyjobs />
                 </View>
             </ScrollView>

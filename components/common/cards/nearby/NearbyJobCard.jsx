@@ -2,10 +2,11 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './nearbyjobcard.style'
+import { router } from 'expo-router'
 
 const NearbyJobCard = ({ item }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => router.push(`job-details/${item.job_id}`)}>
       <TouchableOpacity style={styles.logoContainer}>
         <Image style={styles.logoImage} source={item.employer_logo} />
       </TouchableOpacity>
