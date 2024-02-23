@@ -4,11 +4,17 @@ import { View, Text, TouchableOpacity, ActivityIndicator, FlatList } from 'react
 import styles from './popularjobs.style'
 import PopularJobCard from '../../common/cards/popular/PopularJobCard'
 import { COLORS, SIZES } from '../../../constants'
+import useFetch from '../../../hook/useFetch'
 
 const PopularJobs = () => {
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const { data, isLoading, error } = useFetch('search', {
+    query: "nae",
+    num_pages: 1
+  });
+
+  const [selectedJob, setSelectedJob] = useState();
+
 
   return (
     <View style={styles.container}>
@@ -28,16 +34,15 @@ const PopularJobs = () => {
           <Text>Something went Wrong</Text>
         ) : (
           <FlatList
-            data={[1, 2, 3, 4, 5]}
-            keyExtractor={item => item}
+            data={data}
+            keyExtractor={item => item?.job_id}
             horizontal
             contentContainerStyle={{ columnGap: SIZES.medium }}
             renderItem={({ item }) => (
-              <PopularJobCard item={item} />
+              <PopularJobCard item={item} selectedJob={selectedJob} />
             )} />
         )}
       </View>
-
     </View>
   )
 }

@@ -1,13 +1,20 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './nearbyjobcard.style'
 
-const NearbyJobCard = () => {
+const NearbyJobCard = ({ item }) => {
   return (
-    <View>
-      <Text>NearbyJobCard</Text>
-    </View>
+    <TouchableOpacity style={styles.container}>
+      <TouchableOpacity style={styles.logoContainer}>
+        <Image style={styles.logoImage} source={item.employer_logo} />
+      </TouchableOpacity>
+
+      <View style={styles.textContainer}>
+        <Text style={styles.jobName} numberOfLines={1}>{item.job_title}</Text>
+        <Text style={styles.jobType}>{item.job_employment_type}</Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
