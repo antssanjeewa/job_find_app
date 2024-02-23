@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { COLORS, icons, images, SIZES } from '../constants';
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
+import { Nearbyjobs, PopularJobs, ScreenHeaderBtn, Welcome } from '../components';
 
 export default function Page() {
     return (
@@ -22,7 +22,7 @@ export default function Page() {
                 <View style={{ flex: 1, padding: SIZES.medium }}>
                     <Welcome />
 
-                    <Popularjobs />
+                    <PopularJobs />
                     <Nearbyjobs />
                 </View>
             </ScrollView>
